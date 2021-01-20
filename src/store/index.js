@@ -45,5 +45,51 @@ export default new Vuex.Store({
       });
     }
   },
-  getters: {}
+  getters: {
+    cases: state => {
+      return state.cases;
+    },
+    todayCases: state => {
+      return state.todayCases;
+    },
+    deaths: state => {
+      return state.deaths;
+    },
+    todayDeaths: state => {
+      return state.todayDeaths;
+    },
+    recovered: state => {
+      return state.recovered;
+    },
+    todayRecovered: state => {
+      return state.todayRecovered;
+    },
+    active: state => {
+      return state.active;
+    },
+    casesPerOneMillion: state => {
+      return state.casesPerOneMillion;
+    },
+    deathsPerOneMillion: state => {
+      return state.deathsPerOneMillion;
+    },
+    tests: state => {
+      return state.tests;
+    },
+    testsPerOneMillion: state => {
+      return state.testsPerOneMillion;
+    },
+    activePerOneMillion: state => {
+      return state.activePerOneMillion;
+    },
+    recoveredPerOneMillion: state => {
+      return state.recoveredPerOneMillion;
+    },
+    todayCases: state => {
+      return state.todayCases;
+    },
+    criticalPerOneMillion: state => {
+      return state.criticalPerOneMillion;
+    }
+  }
 });
