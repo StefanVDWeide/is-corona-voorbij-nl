@@ -10,17 +10,12 @@ export default new Vuex.Store({
     todayCases: 0,
     deaths: 0,
     todayDeaths: 0,
-    recovered: 0,
-    todayRecovered: 0,
-    active: 0,
-    critical: 0,
     casesPerOneMillion: 0,
     deathsPerOneMillion: 0,
     tests: 0,
-    testsPerOneMillion: 0,
-    activePerOneMillion: 0,
-    recoveredPerOneMillion: 0,
-    criticalPerOneMillion: 0
+    chartDataCases: {},
+    chartDeathsCases: {},
+    chartRecoveredCases: {}
   },
   mutations: {
     processCovidData(state, covidData) {
@@ -28,16 +23,14 @@ export default new Vuex.Store({
       state.todayCases = covidData["cases"];
       state.deaths = covidData["deaths"];
       state.todayDeaths = covidData["todayDeaths"];
-      state.todayRecovered = covidData["todayRecovered"];
-      state.active = covidData["active"];
-      state.critical = covidData["critical"];
       state.casesPerOneMillion = covidData["casesPerOneMillion"];
       state.deathsPerOneMillion = covidData["deathsPerOneMillion"];
       state.tests = covidData["tests"];
-      state.testsPerOneMillion = covidData["testsPerOneMillion"];
-      state.activePerOneMillion = covidData["activePerOneMillion"];
-      state.recoveredPerOneMillion = covidData["recoveredPerOneMillion"];
-      state.criticalPerOneMillion = covidData["criticalPerOneMillion"];
+    },
+    processCovidChartData(state, covidChartData) {
+      state.chartDataCases = covidChartData["cases"];
+      state.chartDeathsCases = covidChartData["deaths"];
+      state.chartRecoveredCases = covidChartData["recovered"];
     }
   },
   actions: {
@@ -56,7 +49,23 @@ export default new Vuex.Store({
             reject(error);
           });
       });
-    }
+    },
+    retrieveCovidChartData(context) {
+      return new Promise((resolve, reject) => {
+        Api()
+          .get("/historical/NL?lastdays=30")
+          .then(response => {
+            const covidChartData = response.data["timeline"];
+            context.commit("processCovidChartData", covidChartData);
+
+            resolve(response);
+          })
+          .catch(error => {
+            context.commit("apiError", error);
+            reject(error);
+          });
+      });
+    },
   },
   getters: {
     cases: state => {
@@ -71,15 +80,6 @@ export default new Vuex.Store({
     todayDeaths: state => {
       return state.todayDeaths;
     },
-    recovered: state => {
-      return state.recovered;
-    },
-    todayRecovered: state => {
-      return state.todayRecovered;
-    },
-    active: state => {
-      return state.active;
-    },
     casesPerOneMillion: state => {
       return state.casesPerOneMillion;
     },
@@ -89,17 +89,29 @@ export default new Vuex.Store({
     tests: state => {
       return state.tests;
     },
-    testsPerOneMillion: state => {
-      return state.testsPerOneMillion;
-    },
-    activePerOneMillion: state => {
-      return state.activePerOneMillion;
-    },
-    recoveredPerOneMillion: state => {
-      return state.recoveredPerOneMillion;
-    },
-    criticalPerOneMillion: state => {
-      return state.criticalPerOneMillion;
+
+    chartData: state => {
+      const chartData =  {
+        labels: Object.keys(state.chartDataCases),
+        datasets: [
+          {
+            label: 'Besmettingen',
+            backgroundColor: '#f3f7ff',
+            data: Object.values(state.chartDataCases)
+          },
+          {
+            label: 'Doden',
+            backgroundColor: '#f87979',
+            data: Object.values(state.chartDeathsCases)
+          },
+          {
+            label: 'Genezen',
+            backgroundColor: '#5d65ff',
+            data: Object.values(state.chartRecoveredCases)
+          }
+        ]
+      }
+      return chartData;
     }
   }
 });

@@ -1,8 +1,13 @@
 <template>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <b-navbar type="light" sticky=true>
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav class="mx-auto">
+        <b-nav-item class="navbar-link" to="/">Thuis</b-nav-item>
+        <b-nav-item class="navbar-link" to="/about">Over</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
