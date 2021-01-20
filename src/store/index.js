@@ -25,6 +25,19 @@ export default new Vuex.Store({
   mutations: {
     processCovidData(state, covidData) {
       state.cases = covidData["cases"];
+      state.todayCases = covidData["cases"];
+      state.deaths = covidData["deaths"];
+      state.todayDeaths = covidData["todayDeaths"];
+      state.todayRecovered = covidData["todayRecovered"];
+      state.active = covidData["active"];
+      state.critical = covidData["critical"];
+      state.casesPerOneMillion = covidData["casesPerOneMillion"];
+      state.deathsPerOneMillion = covidData["deathsPerOneMillion"];
+      state.tests = covidData["tests"];
+      state.testsPerOneMillion = covidData["testsPerOneMillion"];
+      state.activePerOneMillion = covidData["activePerOneMillion"];
+      state.recoveredPerOneMillion = covidData["recoveredPerOneMillion"];
+      state.criticalPerOneMillion = covidData["criticalPerOneMillion"];
     }
   },
   actions: {
@@ -84,9 +97,6 @@ export default new Vuex.Store({
     },
     recoveredPerOneMillion: state => {
       return state.recoveredPerOneMillion;
-    },
-    todayCases: state => {
-      return state.todayCases;
     },
     criticalPerOneMillion: state => {
       return state.criticalPerOneMillion;
