@@ -1,24 +1,19 @@
 # is-corona-voorbij-nl
+A web app which keeps track of the current corona (covid-19) situation in The Netherlands and gives a a very clear answer to the question:
 
-## Project setup
-```
-npm install
-```
+`Is corona voorbij?`
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Or for the non-dutch readers:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+`Is corona over?`
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Where does the data come from?
+The data for the number cards comes from [Worldometers](https://www.worldometers.info/coronavirus/) and the data for the chart come from [Johns Hopkins University](https://www.jhu.edu/). Both datasets are retrieved via the [disease.sh API](https://github.com/disease-sh/API)
+## How is the app built?
+The front end is made with Vue.js and Bootstrap for the styling. The backend is a super simple Express server which really only serves the html entrypoint for Vue.js
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Why did you build this? 
+The domain name was still availble and it's always good to practice :)
+## To-Do's
+ - Optimize styling of the chart on the home page. Currently it isn't very easy to read
+ - Finish this README.md
