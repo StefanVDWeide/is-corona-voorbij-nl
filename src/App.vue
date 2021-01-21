@@ -7,7 +7,7 @@
       @beforeLeave="beforeLeave"
       @enter="enter"
       @afterEnter="afterEnter"
-      >
+    >
       <router-view />
     </transition>
   </div>
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      prevHeight: 0,
+      prevHeight: 0
     };
   },
   methods: {
@@ -40,10 +40,10 @@ export default {
       });
     },
     afterEnter(element) {
-      element.style.height = 'auto';
-    },
-  },
-}
+      element.style.height = "auto";
+    }
+  }
+};
 </script>
 
 <style>
@@ -164,6 +164,6 @@ body {
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 </style>

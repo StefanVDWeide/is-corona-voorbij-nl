@@ -65,7 +65,7 @@ export default new Vuex.Store({
             reject(error);
           });
       });
-    },
+    }
   },
   getters: {
     cases: state => {
@@ -91,26 +91,26 @@ export default new Vuex.Store({
     },
 
     chartData: state => {
-      const chartData =  {
+      const chartData = {
         labels: Object.keys(state.chartDataCases),
         datasets: [
           {
-            label: 'Besmettingen',
-            backgroundColor: '#f3f7ff',
+            label: "Besmettingen",
+            backgroundColor: "#f3f7ff",
             data: Object.values(state.chartDataCases)
           },
           {
-            label: 'Doden',
-            backgroundColor: '#f87979',
+            label: "Doden",
+            backgroundColor: "#f87979",
             data: Object.values(state.chartDeathsCases)
           },
           {
-            label: 'Genezen',
-            backgroundColor: '#5d65ff',
+            label: "Genezen",
+            backgroundColor: "#5d65ff",
             data: Object.values(state.chartRecoveredCases)
           }
         ]
-      }
+      };
       return chartData;
     }
   }

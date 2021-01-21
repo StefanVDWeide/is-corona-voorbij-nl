@@ -40,7 +40,9 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4">Besmettingen Per 1 Miljoen</h4>
-            <span class="number-span">Totaal {{ casecasesPerOneMillions }}</span>
+            <span class="number-span"
+              >Totaal {{ casecasesPerOneMillions }}</span
+            >
           </div>
         </b-col>
         <b-col cols="12" lg="6">
@@ -72,7 +74,11 @@
       <b-row class="statistics-row">
         <b-col>
           <div>
-            <LineChart v-if="loaded" :chartdata="chartdata" :options="options"></LineChart>
+            <LineChart
+              v-if="loaded"
+              :chartdata="chartdata"
+              :options="options"
+            ></LineChart>
           </div>
         </b-col>
       </b-row>
@@ -94,7 +100,7 @@ export default {
       this.casecasesPerOneMillions = this.$store.getters.casesPerOneMillion;
       this.deathsPerOneMillion = this.$store.getters.deathsPerOneMillion;
       this.castestses = this.$store.getters.tests;
-    })
+    });
     this.$store.dispatch("retrieveCovidChartData").then(() => {
       this.chartdata = this.$store.getters.chartData;
       this.loaded = true;
@@ -114,8 +120,8 @@ export default {
       deathsPerOneMillion: 0,
       castestses: 0,
       chartdata: {},
-      options: {},
-    }
+      options: {}
+    };
   }
 };
 </script>
