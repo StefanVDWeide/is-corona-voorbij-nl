@@ -25,14 +25,14 @@
           <div class="statistics-div">
             <h4 class="heading-h4">Besmettingen</h4>
             <span class="number-span mr-3">Totaal {{ cases }}</span>
-            <span class="number-span">Vandaag {{ cases }}</span>
+            <span class="number-span">Vandaag {{ todayCases }}</span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4">Doden</h4>
-            <span class="number-span mr-3">Totaal {{ cases }}</span>
-            <span class="number-span">Vandaag {{ cases }}</span>
+            <span class="number-span mr-3">Totaal {{ deaths }}</span>
+            <span class="number-span">Vandaag {{ todayDeaths }}</span>
           </div>
         </b-col>
       </b-row>
@@ -40,15 +40,13 @@
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4">Besmettingen Per 1 Miljoen</h4>
-            <span class="number-span mr-3">Totaal {{ cases }}</span>
-            <span class="number-span">Vandaag {{ cases }}</span>
+            <span class="number-span">Totaal {{ casecasesPerOneMillions }}</span>
           </div>
         </b-col>
         <b-col cols="12" lg="6">
           <div class="statistics-div">
             <h4 class="heading-h4">Doden Per 1 Miljoen</h4>
-            <span class="number-span mr-3">Totaal {{ cases }}</span>
-            <span class="number-span">Vandaag {{ cases }}</span>
+            <span class="number-span">Totaal {{ deathsPerOneMillion }}</span>
           </div>
         </b-col>
       </b-row>
@@ -56,7 +54,7 @@
         <b-col>
           <div class="highlight-statistics-div">
             <h4 class="heading-h4">Aantal Testen</h4>
-            <span class="number-span">Totaal {{ cases }}</span>
+            <span class="number-span">Totaal {{ castestses }}</span>
           </div>
         </b-col>
       </b-row>
@@ -88,13 +86,19 @@ import LineChart from "@/components/Chart.vue";
 export default {
   name: "Home",
   created() {
-    this.$store.dispatch("retrieveCovidData");
-    this.$store.dispatch("retrieveCovidChartData")
-  },
-  mounted() {
-    console.log(this.$store.getters.chartData)
-    this.chartdata = this.$store.getters.chartData;
-    this.loaded = true;
+    this.$store.dispatch("retrieveCovidData").then(() => {
+      this.cases = this.$store.getters.cases;
+      this.todayCases = this.$store.getters.todayCases;
+      this.deaths = this.$store.getters.deaths;
+      this.todayDeaths = this.$store.getters.todayDeaths;
+      this.casecasesPerOneMillions = this.$store.getters.casesPerOneMillion;
+      this.deathsPerOneMillion = this.$store.getters.deathsPerOneMillion;
+      this.castestses = this.$store.getters.tests;
+    })
+    this.$store.dispatch("retrieveCovidChartData").then(() => {
+      this.chartdata = this.$store.getters.chartData;
+      this.loaded = true;
+    });
   },
   components: {
     LineChart
@@ -102,7 +106,13 @@ export default {
   data() {
     return {
       loaded: false,
-      cases: 12345,
+      cases: 0,
+      todayCases: 0,
+      deaths: 0,
+      todayDeaths: 0,
+      casecasesPerOneMillions: 0,
+      deathsPerOneMillion: 0,
+      castestses: 0,
       chartdata: {},
       options: {},
     }

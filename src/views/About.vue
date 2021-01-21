@@ -35,7 +35,7 @@
           <div class="statistics-div">
             <h4 class="heading-h4">Waar kan ik de code voor de website zien?</h4>
             <span class="number-span mr-3">
-              Hier: <b-link href="https://github.com/StefanVDWeide" target="_blank">Github</b-link>
+              Hier: <b-link href="https://github.com/StefanVDWeide/is-corona-voorbij-nl" target="_blank">Github</b-link>
             </span>
           </div>
         </b-col>
