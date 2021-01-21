@@ -20,7 +20,7 @@ export default new Vuex.Store({
   mutations: {
     processCovidData(state, covidData) {
       state.cases = covidData["cases"];
-      state.todayCases = covidData["cases"];
+      state.todayCases = covidData["todayCases"];
       state.deaths = covidData["deaths"];
       state.todayDeaths = covidData["todayDeaths"];
       state.casesPerOneMillion = covidData["casesPerOneMillion"];
