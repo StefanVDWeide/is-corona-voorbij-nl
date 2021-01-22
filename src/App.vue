@@ -137,7 +137,7 @@ body {
 
 @media (min-width: 992px) {
   .statistics-row {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 }
 

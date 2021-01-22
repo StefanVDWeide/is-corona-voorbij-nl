@@ -35,7 +35,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="statistics-div">
-            <h4 class="heading-h4">Waar heb je deze website gemaakt?</h4>
+            <h4 class="heading-h4">Waarom heb je deze website gemaakt?</h4>
             <span class="number-span mr-3">
               De domeinnaam was nog beschikbaar.
             </span>
