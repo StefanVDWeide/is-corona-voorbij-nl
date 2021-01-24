@@ -20,7 +20,8 @@ const routes = [
   {
     path: "/404",
     name: "NotFound",
-    component: () => import(/* webpackChunkName: "notfound" */ "../views/errors/404.vue")
+    component: () =>
+      import(/* webpackChunkName: "notfound" */ "../views/errors/404.vue")
   },
   // Catch all route which redirects to the 404 page
   {

@@ -15,7 +15,8 @@ export default new Vuex.Store({
     tests: 0,
     chartDataCases: {},
     chartDeathsCases: {},
-    chartRecoveredCases: {}
+    chartRecoveredCases: {},
+    covidVaccineData: {}
   },
   mutations: {
     processCovidData(state, covidData) {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
       state.chartDataCases = covidChartData["cases"];
       state.chartDeathsCases = covidChartData["deaths"];
       state.chartRecoveredCases = covidChartData["recovered"];
+    },
+    processCovidVacinneData(state, covidVaccineData) {
+      state.covidVaccineData = covidVaccineData;
     }
   },
   actions: {
@@ -45,7 +49,7 @@ export default new Vuex.Store({
             resolve(response);
           })
           .catch(error => {
-            context.commit("apiError", error);
+            console.log(error);
             reject(error);
           });
       });
@@ -61,7 +65,23 @@ export default new Vuex.Store({
             resolve(response);
           })
           .catch(error => {
-            context.commit("apiError", error);
+            console.log(error);
+            reject(error);
+          });
+      });
+    },
+    retrieveCovidVaccineData(context) {
+      return new Promise((resolve, reject) => {
+        Api()
+          .get("/vaccine/coverage/countries/nl?lastdays=30")
+          .then(response => {
+            const covidVaccineData = response.data["timeline"];
+            context.commit("processCovidVacinneData", covidVaccineData);
+
+            resolve(response);
+          })
+          .catch(error => {
+            console.log(error);
             reject(error);
           });
       });
@@ -89,7 +109,6 @@ export default new Vuex.Store({
     tests: state => {
       return state.tests;
     },
-
     chartData: state => {
       const chartData = {
         labels: Object.keys(state.chartDataCases),
@@ -108,10 +127,18 @@ export default new Vuex.Store({
             label: "Genezen",
             backgroundColor: "#5d65ff",
             data: Object.values(state.chartRecoveredCases)
+          },
+          {
+            label: "Vaccinaties",
+            backgroundColor: "#eebb17",
+            data: Object.values(state.covidVaccineData)
           }
         ]
       };
       return chartData;
+    },
+    covidVaccineDataTotal: state => {
+      return Object.values(state.covidVaccineData).pop();
     }
   }
 });

@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "vue": "^2.6.12",
     "vue-chartjs": "^3.5.1",
+    "vue-gtm": "^3.0.0-vue2",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

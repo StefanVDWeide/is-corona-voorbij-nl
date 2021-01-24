@@ -6,6 +6,9 @@ import store from "./store";
 // Bootstrap-vue package
 import { BootstrapVue } from "bootstrap-vue";
 
+// Vue GTM package to integrate Google Tag Manager
+import VueGtm from 'vue-gtm';
+
 // Import bootstrap and bootstrap-vue css files
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -13,6 +16,10 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 Vue.config.productionTip = false;
 
 Vue.use(BootstrapVue);
+
+Vue.use(VueGtm, {
+  id: 'GTM-TPT29ND'
+});
 
 new Vue({
   router,
