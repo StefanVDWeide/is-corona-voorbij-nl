@@ -15,7 +15,7 @@
         <b-col>
           <div class="section-heading-div">
             <h3 class="heading-h3">
-              Hoe staan we er dan voor?
+              Hoe staan we er dan voor? 🤔
             </h3>
           </div>
         </b-col>
@@ -54,20 +54,32 @@
       </b-row>
       <b-row class="statistics-row">
         <b-col>
-          <StatisticsBlockSingle
-            ClassProp="highlight-statistics-div"
-            Title="Totaal Aantal Testen"
-            :Total="castestses"
-          ></StatisticsBlockSingle>
-        </b-col>
-      </b-row>
-      <b-row class="statistics-row">
-        <b-col>
-          <StatisticsBlockSingle
-            ClassProp="highlight-statistics-div"
-            Title="Totaal Aantal Vaccinaties"
-            :Total="vaccineTotal"
-          ></StatisticsBlockSingle>
+          <div class="highlight-statistics-div">
+            <h4 class="heading-h4">Het goede nieuws</h4>
+            <b-row class="my-5">
+              <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+                <StatisticsBlockSingle
+                  ClassProp="highlight-statistics-inner-div"
+                  Title="Aantal Testen 🔬"
+                  :Total="castestses"
+                ></StatisticsBlockSingle>
+              </b-col>
+              <b-col cols="12" lg="6" class="highlight-statistics-inner-column">
+                <StatisticsBlockSingle
+                  ClassProp="highlight-statistics-inner-div"
+                  Title="Aantal Vaccinaties 💉"
+                  :Total="vaccineTotal"
+                ></StatisticsBlockSingle>
+              </b-col>
+            </b-row>
+            <span class="number-span"
+              >Laat je bij symptonen altijd testen! Ga voor meer informatie naar
+              de website van het
+              <b-link href="https://www.rivm.nl/" target="_blank"
+                >RIVM</b-link
+              ></span
+            >
+          </div>
         </b-col>
       </b-row>
     </section>
@@ -76,7 +88,7 @@
         <b-col>
           <div class="section-heading-div">
             <h3 class="heading-h3">
-              Hoe ziet het verloop eruit?
+              Hoe ziet het verloop eruit? 📈
             </h3>
           </div>
         </b-col>

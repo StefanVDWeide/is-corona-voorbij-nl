@@ -151,7 +151,18 @@ body {
   color: #fff;
   border-radius: 1rem;
   padding: 1rem;
-  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .highlight-statistics-inner-column {
+    margin-top: 2rem;
+  }
+}
+
+.highlight-statistics-inner-div {
+  background-color: #5d65ff;
+  border-radius: 1rem;
+  padding: 1rem;
 }
 
 .fade-enter-active,

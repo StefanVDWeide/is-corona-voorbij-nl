@@ -20,11 +20,14 @@
                 href="https://www.worldometers.info/coronavirus/"
                 target="_blank"
                 >Worldometers</b-link
-              >
-              en
+              >,
               <b-link href="https://www.jhu.edu/" target="_blank"
                 >Johns Hopkins University</b-link
-              >. Beide verzameld via de
+              >
+              en
+              <b-link href="https://covid.ourworldindata.org/"
+                >Our World In Data</b-link
+              >. Allemaal verzameld via de
               <b-link href="https://github.com/disease-sh/API" target="_blank"
                 >disease.sh API</b-link
               >
@@ -37,7 +40,7 @@
           <div class="statistics-div">
             <h4 class="heading-h4">Waarom heb je deze website gemaakt?</h4>
             <span class="number-span mr-3">
-              De domeinnaam was nog beschikbaar.
+              De domeinnaam was nog beschikbaar
             </span>
           </div>
         </b-col>
