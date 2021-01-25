@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const history = require("connect-history-api-fallback");
-const enfore = require("express-sslify");
+const enforce = require("express-sslify");
 
 const app = express();
 
