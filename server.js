@@ -1,12 +1,15 @@
 const express = require("express");
 const path = require("path");
 const history = require("connect-history-api-fallback");
+const enfore = require("express-sslify");
 
 const app = express();
 
 const staticFileMiddleware = express.static(path.join(__dirname + "/dist"));
 
 app.use(staticFileMiddleware);
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
+
 app.use(
   history({
     disableDotRule: true
