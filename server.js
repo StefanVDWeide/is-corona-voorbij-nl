@@ -2,12 +2,12 @@ const express = require("express");
 const path = require("path");
 const history = require("connect-history-api-fallback");
 const enforce = require("express-sslify");
-const compression = require("compression")
+const compression = require("compression");
 
 const app = express();
 
 app.use(compression());
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 const staticFileMiddleware = express.static(path.join(__dirname + "/dist"));
 
@@ -19,7 +19,6 @@ app.use(
   })
 );
 app.use(staticFileMiddleware);
-
 
 app.get("/", function(req, res) {
   res.render(path.join(__dirname + "/dist/index.html"));

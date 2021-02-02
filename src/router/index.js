@@ -10,7 +10,7 @@ const routes = [
     name: "Home",
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
     meta: {
-      title: 'Is corona al voorbij?'
+      title: "Is corona al voorbij?"
     }
   },
   {
@@ -19,7 +19,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
     meta: {
-      title: 'Over dit project'
+      title: "Over dit project"
     }
   },
   // Error routes
@@ -29,7 +29,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "notfound" */ "../views/errors/404.vue"),
     meta: {
-      title: 'Pagina niet gevonden!'
+      title: "Pagina niet gevonden!"
     }
   },
   // Catch all route which redirects to the 404 page
@@ -47,9 +47,12 @@ const router = new VueRouter({
 
 // Set the page title per route dynamicly
 router.beforeEach((toRoute, fromRoute, next) => {
-  window.document.title = toRoute.meta && toRoute.meta.title ? toRoute.meta.title : "Is corona al voorbij?";
+  window.document.title =
+    toRoute.meta && toRoute.meta.title
+      ? toRoute.meta.title
+      : "Is corona al voorbij?";
 
   next();
-})
+});
 
 export default router;
