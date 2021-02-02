@@ -4,7 +4,8 @@ import router from "./router";
 import store from "./store";
 
 // Bootstrap-vue package
-import { BootstrapVue } from "bootstrap-vue";
+// b-row / b-col / b-link / b-container / b-navbar / b-navbar-toggle / b-collapse / b-navbar-nav / b-nav-item
+import { BRow, BCol, BLink, BContainer, BNavbar, BNavbarToggle, BCollapse, BNavbarNav, BNavItem } from "bootstrap-vue";
 
 // Vue GTM package to integrate Google Tag Manager
 import VueGtm from "vue-gtm";
@@ -15,7 +16,15 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 Vue.config.productionTip = false;
 
-Vue.use(BootstrapVue);
+Vue.component("b-row", BRow)
+Vue.component("b-col", BCol)
+Vue.component("b-link", BLink)
+Vue.component("b-container", BContainer)
+Vue.component("b-navbar", BNavbar)
+Vue.component("b-navbar-toggle", BNavbarToggle)
+Vue.component("b-collapse", BCollapse)
+Vue.component("b-navbar-nav", BNavbarNav)
+Vue.component("b-nav-item", BNavItem)
 
 Vue.use(VueGtm, {
   id: "GTM-TPT29ND"

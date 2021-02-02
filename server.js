@@ -2,9 +2,11 @@ const express = require("express");
 const path = require("path");
 const history = require("connect-history-api-fallback");
 const enforce = require("express-sslify");
+const compression = require("compression")
 
 const app = express();
 
+app.use(compression())
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 const staticFileMiddleware = express.static(path.join(__dirname + "/dist"));
