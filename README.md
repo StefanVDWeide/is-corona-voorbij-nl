@@ -7,6 +7,9 @@ Or for the non-dutch readers:
 
 `Is corona over?`
 
+## Where can I find the app?
+You can find the app here: [http://iscoronavoorbij.nl/](http://iscoronavoorbij.nl/)
+
 ## Where does the data come from?
 The data for the number cards comes from [Worldometers](https://www.worldometers.info/coronavirus/) and the data for the chart come from [Johns Hopkins University](https://www.jhu.edu/). Both datasets are retrieved via the [disease.sh API](https://github.com/disease-sh/API)
 ## How is the app built?
