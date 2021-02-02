@@ -6,7 +6,7 @@ const compression = require("compression")
 
 const app = express();
 
-app.use(compression())
+app.use(compression());
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 const staticFileMiddleware = express.static(path.join(__dirname + "/dist"));
@@ -19,6 +19,7 @@ app.use(
   })
 );
 app.use(staticFileMiddleware);
+
 
 app.get("/", function(req, res) {
   res.render(path.join(__dirname + "/dist/index.html"));
