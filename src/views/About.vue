@@ -15,7 +15,7 @@
           <div class="statistics-div">
             <h4 class="heading-h4">Waar komt de data vandaan?</h4>
             <span class="number-span mr-3">
-              De data die op de thuis pagina te zien is komt van
+              De data die op de thuis pagina te zien zijn, komen van
               <b-link
                 href="https://www.worldometers.info/coronavirus/"
                 target="_blank"
@@ -27,10 +27,11 @@
               en
               <b-link href="https://covid.ourworldindata.org/"
                 >Our World In Data</b-link
-              >. Allemaal verzameld via de
+              >. Alle gegevens worden via de
               <b-link href="https://github.com/disease-sh/API" target="_blank"
                 >disease.sh API</b-link
               >
+              opgehaald
             </span>
           </div>
         </b-col>

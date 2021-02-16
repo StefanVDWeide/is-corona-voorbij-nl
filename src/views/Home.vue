@@ -73,11 +73,10 @@
               </b-col>
             </b-row>
             <span class="number-span"
-              >Laat je bij symptonen altijd testen! Ga voor meer informatie naar
+              >Laat je bij symptomen altijd testen! Ga voor meer informatie naar
               de website van het
-              <b-link href="https://www.rivm.nl/" target="_blank"
-                >RIVM</b-link
-              ></span
+              <b-link href="https://www.rivm.nl/" target="_blank">RIVM</b-link
+              >.</span
             >
           </div>
         </b-col>
