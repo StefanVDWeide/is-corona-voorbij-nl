@@ -18,7 +18,7 @@ import {
 } from "bootstrap-vue";
 
 // Vue GTM package to integrate Google Tag Manager
-import VueGtm from "vue-gtm";
+import VueGtm from "@gtm-support/vue2-gtm";
 
 // Import bootstrap and bootstrap-vue css files
 import "bootstrap/dist/css/bootstrap.css";
