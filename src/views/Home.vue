@@ -5,7 +5,7 @@
         <b-col>
           <div class="heading-div">
             <h1 class="heading-h1">Is Corona Voorbij?</h1>
-            <h2 class="heading-h2">Nee<span>😷</span></h2>
+            <h2 class="heading-h2">Bijna<span>😮</span></h2>
           </div>
         </b-col>
       </b-row>
@@ -14,9 +14,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">
-              Hoe staan we er dan voor? 🤔
-            </h3>
+            <h3 class="heading-h3">Hoe staan we er dan voor? 🤔</h3>
           </div>
         </b-col>
       </b-row>
@@ -73,8 +71,8 @@
               </b-col>
             </b-row>
             <span class="number-span"
-              >Laat jezelf bij symptomen altijd testen! Ga voor meer informatie naar
-              de website van het
+              >Laat jezelf bij symptomen altijd testen! Ga voor meer informatie
+              naar de website van het
               <b-link href="https://www.rivm.nl/" target="_blank">RIVM</b-link
               >.</span
             >
@@ -86,9 +84,7 @@
       <b-row class="statistics-row">
         <b-col>
           <div class="section-heading-div">
-            <h3 class="heading-h3">
-              Hoe ziet het verloop eruit? 📈
-            </h3>
+            <h3 class="heading-h3">Hoe ziet het verloop eruit? 📈</h3>
           </div>
         </b-col>
       </b-row>
@@ -130,7 +126,7 @@ export default {
   components: {
     LineChart,
     StatisticsBlockDouble,
-    StatisticsBlockSingle
+    StatisticsBlockSingle,
   },
   data() {
     return {
@@ -144,7 +140,7 @@ export default {
       castestses: 0,
       vaccineTotal: 0,
       chartdata: {},
-      options: {}
+      options: {},
     };
   },
   methods: {
@@ -152,7 +148,7 @@ export default {
       await this.$store.dispatch("retrieveCovidData");
       await this.$store.dispatch("retrieveCovidChartData");
       await this.$store.dispatch("retrieveCovidVaccineData");
-    }
-  }
+    },
+  },
 };
 </script>
